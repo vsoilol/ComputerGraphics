@@ -65,7 +65,8 @@ namespace ComputerGraphics
             "Перевернутая трапеция",
             "Равнобедренный треугольник",
             "3 Стрелки",
-            "Шестиугольник"});
+            "Шестиугольник",
+            "Рубин"});
             this.listBox1.Location = new System.Drawing.Point(564, 126);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(224, 148);

@@ -9,15 +9,18 @@ namespace ComputerGraphics
 {
     public partial class Form1 : Form
     {
+        Color mainColor = Color.Red;
+        Bitmap bitmap;
+
         public Form1()
         {
             InitializeComponent();
+            bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }
 
         public void Algorithm(IEnumerable<Edge> edges)
         {
-            pictureBox1.BackColor = Color.Black;
-            Bitmap bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //pictureBox1.BackColor = Color.White;
 
             List<Edge> activeEdges = new List<Edge>();
             List<Edge> edgesList = edges.ToList();
@@ -32,7 +35,7 @@ namespace ComputerGraphics
             {
                 for (int x = item.StartingPoint.X; x <= item.EndPoint.X; x++)
                 {
-                    bitmap.SetPixel(x, item.StartingPoint.Y, Color.Red);
+                    bitmap.SetPixel(x, item.StartingPoint.Y, mainColor);
                 }
 
                 edgesList.Remove(item);
@@ -61,7 +64,7 @@ namespace ComputerGraphics
                 {
                     for (int x = currentPoints[i + a].X; x <= currentPoints[i + 1 + a].X; x++)
                     {
-                        bitmap.SetPixel(x, y, Color.Red);
+                        bitmap.SetPixel(x, y, mainColor);
                         pictureBox1.Image = bitmap;
                     }
 
@@ -167,9 +170,35 @@ namespace ComputerGraphics
                 case "Шестиугольник":
                     edges = Shapes.Hexagon().ToList();
                     break;
+                case "Рубин":
+                    CreateRuby();
+                    return;
             }
 
             Algorithm(edges);
+            bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+        }
+
+        private void CreateRuby()
+        {
+            List<Edge> edges = new List<Edge>();
+
+            edges = Shapes.RubyMainPart().ToList();
+
+            Algorithm(edges);
+
+            edges = Shapes.RubyBottom().ToList();
+            mainColor = Color.FromArgb(139, 0, 0);
+
+            Algorithm(edges);
+
+            edges = Shapes.RubyRight().ToList();
+            mainColor = Color.FromArgb(178, 34, 34);
+
+            Algorithm(edges);
+
+            mainColor = Color.Red;
+            bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }
     }
 }

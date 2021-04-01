@@ -265,5 +265,64 @@ namespace ComputerGraphics
                 new Edge(point5, point0)
             };
         }
+
+        public static IEnumerable<Edge> RubyMainPart()
+        {
+            Point point0 = new Point(5, 5);
+
+            Point point1 = new Point(180, 5);
+            Point point2 = new Point(160, 25);
+
+            Point point3 = new Point(160, 100);
+            Point point4 = new Point(25, 100);
+
+            Point point5 = new Point(5, 120);
+
+            return new List<Edge>
+            {
+                new Edge(point0, point1),
+                new Edge(point1, point2),
+                new Edge(point2, point3),
+                new Edge(point3, point4),
+                new Edge(point4, point5),
+                new Edge(point0, point5)
+            };
+        }
+
+        public static IEnumerable<Edge> RubyBottom()
+        {
+            Point point0 = new Point(25, 100);
+
+            Point point1 = new Point(160, 100);
+            Point point2 = new Point(180, 120);
+
+            Point point3 = new Point(5, 120);
+
+            return new List<Edge>
+            {
+                new Edge(point0, point1),
+                new Edge(point1, point2),
+                new Edge(point2, point3),
+                new Edge(point3, point0),
+            };
+        }
+
+        public static IEnumerable<Edge> RubyRight()
+        {
+            Point point0 = new Point(180, 5);
+
+            Point point1 = new Point(160, 25);
+            Point point2 = new Point(160, 100);
+
+            Point point3 = new Point(180, 120);
+
+            return new List<Edge>
+            {
+                new Edge(point0, point1),
+                new Edge(point1, point2),
+                new Edge(point2, point3),
+                new Edge(point3, point0),
+            };
+        }
     }
 }
