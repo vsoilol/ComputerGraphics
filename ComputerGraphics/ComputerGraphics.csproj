@@ -76,5 +76,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Algorithm\Algorithm.csproj">
+      <Project>{04196806-8243-4E11-BBBD-411C213CD99E}</Project>
+      <Name>Algorithm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Operations\Operations.csproj">
+      <Project>{06E0FBAD-BBAC-4174-9B6E-4D761010B974}</Project>
+      <Name>Operations</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
